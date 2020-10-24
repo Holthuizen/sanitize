@@ -27,10 +27,13 @@ def sanitize(inputstr):
     #now replace dangerous strings with a non dangerous char. (if you remove instead you get: f--le:// -> file://)
     for s in bad_strings:
         try:
-            sanitized = sanitized.replace(s,'#')
+            sanitized = sanitized.replace(s,'?')
         except:
             pass
     return sanitized.strip(' ')
 
-
-print(sanitize("  && hello %3C&'& world"))
+'''
+python function for some what save input sanitazion. 
+origin :  dustyfresh/sanitize.py  
+#print(sanitize("  && hello %3C&'& world")) -> ? hello ?? world
+'''
